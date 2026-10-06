@@ -60,7 +60,8 @@ export const actions: Record<string, ActionHandler<Env>> = {
       for (const f of findings) {
         await tools.create('findings', { auditId, ...f, status: 'open' })
       }
-      const title = page.match(/^#\s+(.+)$/m)?.[1]?.slice(0, 120) ?? new URL(v.url).hostname
+            const u = new URL(v.url)
+      const title = `${u.hostname}${u.pathname === '/' ? '' : u.pathname}`.slice(0, 120)
       await tools.update('audits', auditId, {
         status: 'done',
         title,
