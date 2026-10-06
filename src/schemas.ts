@@ -6,6 +6,9 @@
  *
  * Add schemas by creating a file in src/schemas/ and importing it here.
  */
+import { auditsSchema, findingsSchema } from './schemas/audits-schema'
+
+
 
 import type { CollectionSchema } from 'deepspace/schema'
 import { usersSchema } from './schemas/users-schema'
@@ -14,4 +17,5 @@ import { settingsSchema } from './schemas/admin-schema'
 export const schemas: CollectionSchema[] = [
   usersSchema,
   settingsSchema,
+   auditsSchema, findingsSchema
 ]
