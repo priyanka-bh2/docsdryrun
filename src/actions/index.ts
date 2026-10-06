@@ -46,6 +46,7 @@ export const actions: Record<string, ActionHandler<Env>> = {
       const ai = await tools.integration('anthropic/chat-completion', {
         model: MODEL,
         max_tokens: 3000,
+        temperature: 0,
         system: prompt.system,
         messages: [{ role: 'user', content: prompt.user }],
       })
